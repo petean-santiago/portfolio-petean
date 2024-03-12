@@ -1,49 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
-<Layout  title="Santiago Petean">
+<Layout title="Santiago Petean">
+  <main>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
+    <Card cardStyle="bentoGrid"/>
 
- <main class="h-screen bg-zinc-950">
- <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-10">
-
-  <Card title="1" cardStyle="item large"/>
-  <Card title="2" cardStyle="item"/>
-  <Card title="3" cardStyle="item"/>
-  <Card title="4" cardStyle="item large"/>
-
-  <Card title="5" cardStyle="item"/>
-  <Card title="6" cardStyle="item"/>
-  <Card title="7" cardStyle="item"/>
-  <Card title="8" cardStyle="item"/>
-
-  <Card title="9" cardStyle="item"/>
-  <Card title="10" cardStyle="item"/>
-  <Card title="11" cardStyle="item"/>
-  <Card title="12" cardStyle="item"/>
-
-  <Card title="13" cardStyle="item"/>
-  <Card title="14" cardStyle="item">Small 12</Card>
-  <Card title="15" cardStyle="item">Small 13</Card>
-
-
- </div>
- </main>
-
-
-
-
+  </main>
 </Layout>
 
 <style>
+  body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main {
+    display: grid;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    max-height: 600px;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem;
+  }
 
- .grid {
-  display: grid;
-  //grid-template-columns: 25% 25% 25% 25%;
-  grid-gap: 1em 1em;
-  grid-auto-flow: row dense;
- }
-
-
+  @media screen and (min-width: 640px) {
+    main {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    main {
+      grid-template-rows: 4fr 3fr 3fr;
+    }
+    .bentoGrid:nth-of-type(1) {
+      grid-row: 1/3;
+    }
+    .bentoGrid:nth-of-type(2) {
+      grid-row: 3/4;
+    }
+    .bentoGrid:nth-of-type(5) {
+      grid-column: 2/4;
+      grid-row: 2/4;
+    }
+  }
 </style>
+

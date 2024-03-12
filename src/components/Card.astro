@@ -1,30 +1,66 @@
 ---
 interface Props {
-	cardStyle: string;
-    title: string;
+  cardStyle: string;
 }
 
-const {  cardStyle, title} = Astro.props;
+const { cardStyle } = Astro.props;
 ---
 
-
-<div class={cardStyle}>{title}</div>
+<div class={cardStyle}></div>
 
 <style>
+  .bentoGrid {
+    background-color: hsl(210, 50%, 90%);
+    border-radius: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+    transform: scale(0.5);
+  }
+  .bentoGrid.reveal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
 
-	.item {
-		background: rgb(217, 217, 217);
-		border-radius: 0.25em;
-		padding: 2em;
-        //TODO: with span values you can modify the cards, do it for each card
-        grid-row: auto / span ;
-        grid-column: auto / span ;
+  @media screen and (min-width: 1024px) {
+    main {
+      grid-template-rows: 4fr 3fr 3fr;
     }
-
-	.large {
-        background: rgb(217, 217, 217);
-		grid-column: auto / span 2;
-		grid-row: auto / span 2;
-		height: 200px;
-	}
+    .bentoGrid:nth-of-type(1) {
+      grid-row: 1/3;
+      background-color: yellow;
+    }
+    .bentoGrid:nth-of-type(2) {
+      grid-row: 3/4;
+      background-color: green;
+    }
+    .bentoGrid:nth-of-type(3) {
+      grid-row: 1;
+      background-color: red;
+    }
+    .bentoGrid:nth-of-type(4) {
+      grid-row: 1;
+      background-color: purple;
+    }
+    .bentoGrid:nth-of-type(5) {
+      grid-column: 2/4;
+      grid-row: 2/4;
+      background-color: blue;
+    }
+   
+  }
 </style>
+
+<script>
+  const main = () => {
+    const bentoGrids = Array.from(document.querySelectorAll(".bentoGrid"));
+
+    bentoGrids.forEach((bentoGrid, index) => {
+      setTimeout(() => {
+        bentoGrid.classList.add("reveal");
+      }, index * 100);
+    });
+  };
+  document.addEventListener("DOMContentLoaded", main);
+</script>
