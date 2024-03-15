@@ -1,22 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import MainCard from "../components/MainCard.astro";
 ---
 
 <Layout title="Santiago Petean">
   <main>
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
-    <Card cardStyle="bentoGrid" />
+    <div class="bentoGrid">
+      <MainCard> </MainCard>
+    </div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
+    <div class="bentoGrid"></div>
   </main>
 </Layout>
 
@@ -36,5 +38,320 @@ import Card from "../components/Card.astro";
     grid-auto-rows: minmax(100px, auto);
   }
 
+  .bentoGrid {
+    background-color: hsl(210, 50%, 90%);
+    border-radius: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+    transform: scale(0.5);
+  }
+  .bentoGrid.reveal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
 
+  /* Both grid-row and grid-column work as follows:
+    starting point/end point, grid-column sets the width
+    and grid-row sets the height */
+
+  @media screen and (min-width: 1024px) {
+    .bentoGrid:nth-of-type(1) {
+      background-color: yellow;
+      grid-column: 1/5;
+      grid-row: 1/4;
+    }
+
+    .bentoGrid:nth-of-type(2) {
+      background-color: orange;
+      grid-column: 5/10;
+      grid-row: 1/3;
+    }
+
+    .bentoGrid:nth-of-type(3) {
+      background-color: red;
+      grid-column: 1/3;
+      grid-row: 4/6;
+    }
+
+    .bentoGrid:nth-of-type(4) {
+      background-color: pink;
+      grid-column: 1/3;
+      grid-row: 6/8;
+    }
+
+    .bentoGrid:nth-of-type(5) {
+      background-color: purple;
+      grid-column: 3/5;
+      grid-row: 4/8;
+    }
+
+    .bentoGrid:nth-of-type(6) {
+      background-color: blue;
+      grid-column: 5/8;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(7) {
+      background-color: cyan;
+      grid-column: 8/10;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(8) {
+      background-color: green;
+      grid-column: 5/8;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(9) {
+      background-color: teal;
+      grid-column: 8/10;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(10) {
+      background-color: lime;
+      grid-column: 7/10;
+      grid-row: 7/8;
+    }
+
+    .bentoGrid:nth-of-type(11) {
+      background-color: brown;
+    }
+
+    .bentoGrid:nth-of-type(12) {
+      background-color: magenta;
+    }
+  }
+
+  @media screen and (max-width: 1023px) and (min-width: 700px) {
+    .bentoGrid:nth-of-type(1) {
+      background-color: yellow;
+      grid-column: 1/5;
+      grid-row: 1/4;
+    }
+
+    .bentoGrid:nth-of-type(2) {
+      background-color: orange;
+      grid-column: 5/10;
+      grid-row: 1/3;
+    }
+
+    .bentoGrid:nth-of-type(3) {
+      background-color: red;
+      grid-column: 1/3;
+      grid-row: 4/6;
+    }
+
+    .bentoGrid:nth-of-type(4) {
+      background-color: pink;
+      grid-column: 1/3;
+      grid-row: 6/8;
+    }
+
+    .bentoGrid:nth-of-type(5) {
+      background-color: purple;
+      grid-column: 3/5;
+      grid-row: 4/8;
+    }
+
+    .bentoGrid:nth-of-type(6) {
+      background-color: blue;
+      grid-column: 5/8;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(7) {
+      background-color: cyan;
+      grid-column: 8/10;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(8) {
+      background-color: green;
+      grid-column: 5/8;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(9) {
+      background-color: teal;
+      grid-column: 8/10;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(10) {
+      background-color: lime;
+      grid-column: 8/10;
+      grid-row: 7/8;
+    }
+
+    .bentoGrid:nth-of-type(11) {
+      background-color: brown;
+    }
+
+    .bentoGrid:nth-of-type(12) {
+      background-color: magenta;
+      grid-column: 6/8;
+    }
+  }
+
+  @media screen and (max-width: 699px) and (min-width: 440px) {
+    .bentoGrid:nth-of-type(1) {
+      background-color: yellow;
+      grid-column: 1/5;
+      grid-row: 1/4;
+    }
+
+    .bentoGrid:nth-of-type(2) {
+      background-color: orange;
+      grid-column: 5/10;
+      grid-row: 1/3;
+    }
+
+    .bentoGrid:nth-of-type(3) {
+      background-color: red;
+      grid-column: 1/3;
+      grid-row: 4/5;
+    }
+
+    .bentoGrid:nth-of-type(4) {
+      background-color: pink;
+      grid-column: 1/5;
+      grid-row: 5/8;
+    }
+
+    .bentoGrid:nth-of-type(5) {
+      background-color: purple;
+      grid-column: 3/5;
+      grid-row: 4/5;
+      }
+
+    .bentoGrid:nth-of-type(6) {
+      background-color: blue;
+      grid-column: 5/10;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(7) {
+      background-color: cyan;
+      grid-column: 1/5;
+      grid-row: 8/9;
+    }
+
+    .bentoGrid:nth-of-type(8) {
+      background-color: green;
+      grid-column: 5/8;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(9) {
+      background-color: teal;
+      grid-column: 8/10;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(10) {
+      background-color: lime;
+      grid-column: 5/10;
+      grid-row: 8/9;
+    }
+
+    .bentoGrid:nth-of-type(11) {
+      background-color: brown;
+      grid-column: 5/7;
+    }
+
+    .bentoGrid:nth-of-type(12) {
+      background-color: magenta;
+      grid-column: 7/10;
+    }
+  }
+
+  @media screen and (max-width: 439px) and (min-width: 100px) {
+    .bentoGrid:nth-of-type(1) {
+      background-color: yellow;
+      grid-column: 1/5;
+      grid-row: 1/4;
+    }
+
+    .bentoGrid:nth-of-type(2) {
+      background-color: orange;
+      grid-column: 5/10;
+      grid-row: 1/3;
+    }
+
+    .bentoGrid:nth-of-type(3) {
+      background-color: red;
+      grid-column: 1/4;
+      grid-row: 9/10;
+    }
+
+    .bentoGrid:nth-of-type(4) {
+      background-color: pink;
+      grid-column: 1/5;
+      grid-row: 4/7;
+    }
+
+    .bentoGrid:nth-of-type(5) {
+      background-color: purple;
+      grid-column: 4/10;
+      grid-row: 9/10;
+      }
+
+    .bentoGrid:nth-of-type(6) {
+      background-color: blue;
+      grid-column: 5/10;
+      grid-row: 3/6;
+    }
+
+    .bentoGrid:nth-of-type(7) {
+      background-color: cyan;
+      grid-column: 1/5;
+      grid-row: 7/9;
+    }
+
+    .bentoGrid:nth-of-type(8) {
+      background-color: green;
+      grid-column: 5/10;
+      grid-row: 6/7;
+    }
+
+    .bentoGrid:nth-of-type(9) {
+      background-color: teal;
+      grid-column: 1/10;
+      grid-row: 10/11;
+    }
+
+    .bentoGrid:nth-of-type(10) {
+      background-color: lime;
+      grid-column: 5/10;
+      grid-row: 8/9;
+    }
+
+    .bentoGrid:nth-of-type(11) {
+      background-color: brown;
+      grid-column: 5/7;
+    }
+
+    .bentoGrid:nth-of-type(12) {
+      background-color: magenta;
+      grid-column: 7/10;
+    }
+  }
 </style>
+
+<script>
+  const main = () => {
+    const bentoGrids = Array.from(document.querySelectorAll(".bentoGrid"));
+
+    bentoGrids.forEach((bentoGrid, index) => {
+      setTimeout(() => {
+        bentoGrid.classList.add("reveal");
+      }, index * 100);
+    });
+  };
+  document.addEventListener("DOMContentLoaded", main);
+</script>
+
