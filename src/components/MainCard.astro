@@ -3,9 +3,28 @@ interface Props {
   title: string;
 }
 
+const items = ["", "", ""];
+
 const { title } = Astro.props;
 ---
 
-<div class="h-full font-extrabold flex items-center justify-center text-red-500 font-sans">
-  <p>hola</p>
+<div id="mainCard" class="h-full font-extrabold flex items-center justify-center text-red-500 font-sans">
+  <p>s</p>
 </div>
+
+<script>
+  function checkWidth() {
+    const mainCard = document.getElementById('mainCard');
+
+
+
+    if (window.innerWidth <= 1400) {
+      mainCard.style.display = 'none';
+    } else {
+      mainCard.style.display = 'flex';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', checkWidth);
+  window.addEventListener('resize', checkWidth);
+</script>
